@@ -23,6 +23,8 @@ function setBackgroundImage() {
   const cacheDuration = 60 * 60 * 1000; // 缓存1小时
   if (cachedImageUrl && cacheTime && (currentTime - cacheTime < cacheDuration)) {
     imageUrl = cachedImageUrl;
+    // imageUrl = 'images/wallhaven-l83e5l.png'; // 黑色测试图
+    // imageUrl = 'images/wallhaven-k7pljd.jpg'; // 白色测试图 
     applyBackgroundImage();
   } else {
     chrome.runtime.sendMessage(
@@ -44,6 +46,8 @@ function setBackgroundImage() {
       }
     );
   }
+  // 调整字体颜色
+  adjustTextColor(imageUrl);
 }
 
 function applyBackgroundImage() {
@@ -101,17 +105,12 @@ function getBrightness(color) {
 }
 
 // 根据图片的亮度调整字体颜色
-async function adjustTextColor() {
+async function adjustTextColor(imageUrl) {
   const backgroundColor = await getBackgroundColor(imageUrl);
+  // console.log(backgroundColor);
   const brightness = getBrightness(backgroundColor);
-
-  const text = document.getElementById('text');
-  if (brightness < 128) {
-    text.style.color = 'white';  // 背景暗，文字白色
-  } else {
-    text.style.color = 'black';  // 背景亮，文字黑色
-  }
+  console.log(brightness);
+  const elements = [title, introduce, quote];
+  const color = brightness < 128 ? 'white' : 'black';
+  elements.forEach(el => el.style.color = color);
 }
-
-// 调整字体颜色
-adjustTextColor();
