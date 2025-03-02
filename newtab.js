@@ -14,15 +14,18 @@ const quotes = [
 document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
 
 var imageUrl;
+var responseData;
 
 // 获取背景图片的 URL 并更新页面背景
 function setBackgroundImage() {
   const cachedImageUrl = localStorage.getItem('cachedImageUrl');
+  const cachedresponseData = localStorage.getItem('bingResponse');
   const cacheTime = localStorage.getItem('cacheTime');
   const currentTime = new Date().getTime();
   const cacheDuration = 60 * 60 * 1000; // 缓存1小时
   if (cachedImageUrl && cacheTime && (currentTime - cacheTime < cacheDuration)) {
     imageUrl = cachedImageUrl;
+    responseData = cachedresponseData;
     // imageUrl = 'images/wallhaven-l83e5l.png'; // 黑色测试图
     // imageUrl = 'images/wallhaven-k7pljd.jpg'; // 白色测试图 
     applyBackgroundImage();
@@ -33,14 +36,15 @@ function setBackgroundImage() {
         if (response.error) {
           console.error(response.error);
         } else {
-          imageUrl = response.imageUrl;
+          
+          imageUrl = response.imageInfo.url;
           imageUrl = imageUrl.replaceAll('1920x1080', 'UHD');
-          // console.log(imageUrl);
-          // document.body.style.backgroundImage = `url(${imageUrl})`;
-          // document.body.style.backgroundSize = 'cover';
-          // document.body.style.backgroundPosition = 'center center';
+          responseData = response;
+
           localStorage.setItem('cachedImageUrl', imageUrl);
+          localStorage.setItem('bingResponse', JSON.stringify(response));
           localStorage.setItem('cacheTime', currentTime);
+
           applyBackgroundImage()
         }
       }
@@ -54,8 +58,24 @@ function applyBackgroundImage() {
   document.body.style.backgroundImage = `url(${imageUrl})`;
   document.body.style.backgroundSize = 'cover';
   document.body.style.backgroundPosition = 'center center';
-}
 
+  document.getElementById('download-button').addEventListener('mouseover', function () {
+    // 鼠标移入时显示卡片
+    document.querySelector('.card').style.display = 'block';
+  });
+
+  document.getElementById('download-button').addEventListener('mouseout', function () {
+    // 鼠标移出时隐藏卡片
+    document.querySelector('.card').style.display = 'none';
+  });
+
+  document.getElementById("img-title").textContent = responseData.imageInfo.title + " - 来源：Bing";
+  document.getElementById("img-info").textContent = responseData.imageInfo.copyright;
+  document.getElementById('download-button').addEventListener('click', function () {    
+    window.open(imageUrl, '_blank');
+  });
+
+}
 
 // 页面加载时调用函数设置背景
 window.onload = setBackgroundImage;

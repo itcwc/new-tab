@@ -17,8 +17,7 @@
         "service_worker": "background.js"
     },
     "host_permissions": [
-        "https://cn.bing.com/*",
-        "https://w.wallhaven.cc"
+        "https://cn.bing.com/*"
     ],
     "icons": {
         "16": "images/icon16.png",

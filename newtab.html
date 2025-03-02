@@ -1,20 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>自定义新标签页</title>
   <link rel="stylesheet" href="newtab.css">
 </head>
+
 <body>
   <header>
-    <h1 id = "title">欢迎来到自定义的新标签页</h1>
+    <h1 id="title">欢迎来到自定义的新标签页</h1>
     <!-- <button id="change-background">更换背景</button> -->
   </header>
   <main>
     <p id="introduce">这里可以添加你喜欢的内容，比如天气、搜索框等。</p>
     <div id="quote"></div>
   </main>
+
+  <img id="download-button" src="images/download.svg" alt="壁纸下载" title="壁纸下载" style="
+            width: 20px; 
+            height: 20px; 
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        ">
+  <div class="card" style="
+  width: 200px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 42px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.5);  /* 使用rgba设置颜色和透明度 */
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: none;
+  ">
+    <p id="img-title" style="color: #34495e;">壁纸下载</p>
+    <p id="img-info" style="color: #34495e;">壁纸简介</p>
+  </div>
   <script src="newtab.js"></script>
 </body>
+
 </html>
