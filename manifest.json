@@ -4,11 +4,9 @@
     "version": "1.0",
     "description": "A custom new tab page for Chrome",
     "permissions": [
-        "storage"
+        "storage",
+        "declarativeNetRequest"
     ],
-    "chrome_url_overrides": {
-        "newtab": "newtab.html"
-    },
     "action": {
         "default_popup": "popup.html",
         "default_icon": "images/icon128.png"

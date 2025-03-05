@@ -1,0 +1,18 @@
+body {
+    width: 250px;
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
