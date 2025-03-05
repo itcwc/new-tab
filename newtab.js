@@ -69,8 +69,10 @@ function applyBackgroundImage() {
     document.querySelector('.card').style.display = 'none';
   });
 
-  document.getElementById("img-title").textContent = responseData.imageInfo.title + " - 来源：Bing";
-  document.getElementById("img-info").textContent = responseData.imageInfo.copyright;
+  data = JSON.parse(responseData);
+
+  document.getElementById("img-title").textContent = data.imageInfo.title + " - 来源：Bing";
+  document.getElementById("img-info").textContent = data.imageInfo.copyright;
   document.getElementById('download-button').addEventListener('click', function () {    
     window.open(imageUrl, '_blank');
   });
@@ -134,3 +136,19 @@ async function adjustTextColor(imageUrl) {
   const color = brightness < 128 ? 'white' : 'black';
   elements.forEach(el => el.style.color = color);
 }
+
+
+// 搜索
+document.getElementById("search-btn").addEventListener("click", function () {
+  const engine = document.getElementById("search-engine").value;
+  const query = document.getElementById("search-box").value.trim();
+  if (query) {
+    window.location.href = engine + encodeURIComponent(query);
+  }
+});
+
+document.getElementById("search-box").addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    document.getElementById("search-btn").click();
+  }
+});

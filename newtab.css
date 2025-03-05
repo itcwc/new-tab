@@ -16,7 +16,7 @@ header {
   margin-top: 20px;
 }
 
-button {
+/* button {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   border: none;
@@ -24,7 +24,7 @@ button {
   font-size: 16px;
   cursor: pointer;
   margin-top: 10px;
-}
+} */
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.8);
@@ -41,7 +41,108 @@ main {
   margin-top: 10px;
 }
 
+#download-button{
+  width: 20px; 
+  height: 20px; 
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.card{
+  width: 200px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 42px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.5);  /* 使用rgba设置颜色和透明度 */
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
 footer {
   text-align: center;
   margin-bottom: 20px;
+}
+
+/* 搜索 */
+#search-container {
+  /* 保留原有定位样式 */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 0; /* 去除间隙 */
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid #e0e0e0;
+  
+  /* 新增融合效果 */
+  padding: 5px;
+  overflow: hidden; /* 隐藏内部元素溢出的圆角 */
+}
+
+#search-engine {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  appearance: none; /* 移除默认箭头 */
+  background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234a90e2'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e") no-repeat right 12px center;
+}
+
+#search-box {
+  flex: 1;
+  height: 40px;
+  padding: 0 15px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+}
+
+#search-box:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#search-btn {
+  height: 40px;
+  padding: 0 25px;
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 统一交互效果 */
+#search-engine:hover,
+#search-box:hover,
+#search-btn:hover {
+  background-color: rgba(74, 144, 226, 0.05);
+}
+
+#search-container:focus-within {
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+}
+
+/* 移动端适配 */
+@media (max-width: 480px) {
+  #search-container {
+    width: calc(100% - 40px);
+    left: 20px;
+  }
+  
+  #search-engine {
+    padding-right: 30px;
+    background-position: right 8px center;
+  }
 }
