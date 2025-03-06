@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <title>新标签页扩展</title>
-    <link rel="stylesheet" href="popup.css">
-    <script src="popup.js" defer></script>
+    <link rel="stylesheet" href="/css/popup.css">
+    <script src="/js/popup.js" defer></script>
 </head>
+
 <body>
-    <!-- <h3>新标签页</h3> -->
-    <button id="openNewTab">打开新标签页</button>
-    <br>
-    <br>
-    <label>
-        <input type="checkbox" id="toggleNewTab">
-        启用自定义新标签页
+    <label class="switch">
+        <input type="checkbox" id="toggleDarkMode">
+        <span class="slider"></span>
     </label>
-    <!-- <button id="settings">设置</button> -->
+    <span style="font-size: 15px;">黑暗模式</span>
+    <br>
+    <br>
+    <button id="openNewTab">打开新标签页</button>
 </body>
+
 </html>
