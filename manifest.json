@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Custom New Tab Page",
+    "name": "CTab新标签页",
     "version": "1.0",
     "description": "A custom new tab page for Chrome",
     "permissions": [

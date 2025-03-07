@@ -159,3 +159,46 @@ chrome.storage.sync.get("darkMode", function (data) {
     document.body.classList.add("dark-mode")
   }
 });
+
+
+const apiKey = "33bee83f5d6e7a95b1304f9d1ff7e545";  // 请替换为你的API Key
+const city = "110000";  // 北京的 adcode，可替换为其他城市
+const cacheKey = "weather_cache";
+
+function fetchWeather() {
+  const url = `https://restapi.amap.com/v3/weather/weatherInfo?key=${apiKey}&city=${city}&extensions=base&output=json`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === "1") {
+        const weatherData = {
+          weather: data.lives[0].weather,
+          temperature: data.lives[0].temperature,
+          updateTime: Date.now()
+        };
+        chrome.storage.local.set({ [cacheKey]: weatherData });
+        updateUI(weatherData);
+      } else {
+        document.getElementById("weatherInfo").innerText = "获取天气失败";
+      }
+    })
+    .catch(() => {
+      document.getElementById("weatherInfo").innerText = "网络请求失败";
+    });
+}
+
+function updateUI(weatherData) {
+  document.getElementById("weatherInfo").innerText =
+    `天气: ${weatherData.weather}, 温度: ${weatherData.temperature}°C`;
+}
+
+// 检查缓存并决定是否请求新数据
+chrome.storage.local.get(cacheKey, (result) => {
+  const cachedData = result[cacheKey];
+  if (cachedData && (Date.now() - cachedData.updateTime < 30 * 60 * 1000)) {
+    updateUI(cachedData);
+  } else {
+    fetchWeather();
+  }
+});
