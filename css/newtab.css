@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,12 +40,32 @@ main {
 }
 
 #quote {
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 10px;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .dark-mode #quote {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+#weatherTitle {
+  font-size: 16px;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode #weatherTitle {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+#weatherInfo {
+  font-size: 16px;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-mode #weatherInfo {
   color: rgba(0, 0, 0, 0.9);
 }
 
@@ -100,13 +121,8 @@ footer {
   border: none;
   background: transparent;
   font-size: 14px;
-  /* color: #34495e; */
-
   color: rgba(0, 0, 0, 0.9);
   cursor: pointer;
-  /* 移除默认箭头 */
-  /* appearance: none;  */
-  /* background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234a90e2'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e") no-repeat right 12px center; */
 }
 
 .dark-mode #search-engine {
