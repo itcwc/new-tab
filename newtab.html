@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义新标签页</title>
+  <link rel="stylesheet" href="/css/newtab.css">
+  <link rel="stylesheet" href="/css/clock.css">
+</head>
+
+<body>
+  <header>
+    <div id="time"></div>
+    <div id="date"></div>
+    <!-- <h1 id="title">欢迎来到自定义的新标签页</h1> -->
+    <!-- <button id="change-background">更换背景</button> -->
+    <div id="search-container">
+      <select id="search-engine">
+        <option value="https://www.google.com/search?q=">Google</option>
+        <option value="https://www.bing.com/search?q=">Bing</option>
+        <option value="https://www.baidu.com/s?wd=">百度</option>
+      </select>
+      <input type="text" id="search-box" placeholder="输入关键字搜索">
+      <button id="search-btn">搜索</button>
+    </div>
+  </header>
+  <main>
+    <!-- <p id="introduce">这里可以添加你喜欢的内容，比如天气、搜索框等。</p> -->
+    <div id="weatherTitle">当前天气</div>
+    <div id="weatherInfo">加载中...</div>
+    <div id="quote"></div>
+  </main>
+
+  <img id="download-button" src="images/download.svg" alt="壁纸下载" title="壁纸下载">
+  <div class="card">
+    <p id="img-title" style="color: #34495e;">壁纸下载</p>
+    <p id="img-info" style="color: #34495e;">壁纸简介</p>
+  </div>
+  <script src="/js/newtab.js"></script>
+  <script src="/js/clock.js"></script>
+</body>
+
+</html>
