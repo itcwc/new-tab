@@ -1,5 +1,8 @@
 # CTab 新标签页 · Chrome 扩展
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/itcwc/new-tab/issues)
+
 > 一个基于 **Manifest V3** 的 Chrome 新标签页扩展，把空白的新标签页变成集「时钟 · 搜索 · 天气 · 每日壁纸 · 每日一言」于一体的个人主页。  
 > 同时本仓库也是掘金专栏 [《谷歌浏览器插件开发系列》](https://juejin.cn/column/7473799336674869260) 的**配套源码**。
 
