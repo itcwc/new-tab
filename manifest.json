@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "CTab新标签页",
+    "version": "1.0",
+    "description": "A custom new tab page for Chrome",
+    "permissions": [
+        "storage",
+        "declarativeNetRequest",
+        "tabs",
+        "webNavigation"
+    ],
+    "chrome_url_overrides": {
+        "newtab": "newtab.html"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "images/icon128.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "https://cn.bing.com/*"
+    ],
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    }
+}
